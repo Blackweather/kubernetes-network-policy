@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hello
+  namespace: beta
+spec:
+  containers:
+  - image: gcr.io/google-samples/hello-app:1.0
+    name: hello-app
+    ports:
+    - containerPort: 8080
