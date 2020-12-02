@@ -1,6 +1,9 @@
 apiVersion: v1
 kind: Pod
 metadata:
+  labels:
+    app: hello
+
   name: hello
   namespace: alpha
 spec:
