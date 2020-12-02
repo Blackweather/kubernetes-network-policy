@@ -20,7 +20,7 @@ Then run:
 ```
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 ```
-Then you can use *choco* command. 
+Then you can use `choco` command. 
 
 In case of any trouble, follow the official docs:
 *   https://docs.docker.com/docker-for-windows/install/
@@ -50,7 +50,7 @@ choco install minikube
 ```
 voila!
 *   Otherwise, download and run the [Windows installer](https://storage.googleapis.com/minikube/releases/latest/minikube-installer.exe)
-*   Check if 'minikube version' works.
+*   Check if `minikube version` works.
 
 **Kubectl**
 
@@ -61,12 +61,12 @@ choco install kubernetes-cli
 ```
 voila!
 
-*   Otherwise, use *curl* and run:
+*   Otherwise, use `curl` and run:
 ```
 curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.19.0/bin/windows/amd64/kubectl.exe
 ```
 And add the binary in to your PATH.
-*   Check if 'kubectl version' works.
+*   Check if `kubectl version` works.
 
 ## Linux (Ubuntu)
 

@@ -2,7 +2,9 @@ apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   name: namespace-isolation-policy
-  # insert namespace here
+  # namespace?
 spec:
-  podSelector: {}
-  ingress: []
+  podSelector: 
+    matchLabels:
+  # write rules here:
+  # ingress/egress?

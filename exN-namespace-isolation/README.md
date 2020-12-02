@@ -41,7 +41,7 @@ kubernetes-dashboard   Active   30d
 
 Notice two new namespaces were created: `alpha` and `beta`
 
-3. Create the `hello` pods in both namespaces using the provided manifests
+3. Create the `hello` and `hello-v2` pods in both namespaces using the provided manifests
 Run these commands:
 ```
 $ kubectl apply -f pods/alpha/
@@ -55,8 +55,9 @@ kubectl get po -n <namespace>
 
 Your output should look like this:
 ```
-NAME        READY   STATUS    RESTARTS   AGE
-pod/hello   1/1     Running   0          60s
+NAME           READY   STATUS    RESTARTS   AGE
+pod/hello      1/1     Running   0          60s
+pod/hello-v2   1/1     Running   0          60s
 ```
 
 Make sure the `hello` pod is running for both namespaces.
@@ -74,8 +75,9 @@ $ kubectl get po -o wide -n beta
 
 Your output should look like this:
 ```
-NAME    READY   STATUS    RESTARTS   AGE   IP           NODE       NOMINATED NODE   READINESS GATES
-hello   1/1     Running   0          12m   172.17.0.6   minikube   <none>           <none>
+NAME       READY   STATUS    RESTARTS   AGE   IP           NODE       NOMINATED NODE   READINESS GATES
+hello      1/1     Running   0          12m   172.17.0.6   minikube   <none>           <none>
+hello-v2   1/1     Running   0          12m   172.17.0.7   minikube   <none>           <none>
 ```
 
 Copy the IP field, it will be used later to test connection.
@@ -117,17 +119,21 @@ Hostname: hello
 Exit out of the alpha Pod and repeat the process to test the connection from beta to alpha namespace.
 
 ### Fill in the NetworkPolicy YAML manifest with appropriate rules and deploy it to the cluster
-1. The file *policy/policy.yaml* contains a barebones manifest for a NetworkPolicy that needs to be filled in with the proper rules
+1. The file *policy/policy.yaml* contains a barebones manifest for a NetworkPolicy that needs to be filled in with the proper rules (is one NetworkPolicy enough for this case?)
 2. Create the `NetworkPolicy` by applying the manifest.
 Run this command:
 ```
 $ kubectl apply -f policy/
 ```
 3. Verify the policy was created
-// TODO: fill in
+Run this command:
+```
+$ kubectl get networkpolicy -n
+```
 
 ### Test if your NetworkPolicy is working as expected
-
+1. Test if the Pods cannot connect across namespaces
+2. Test if the Pods in the same namespace can still connect to each other - use the `hello-v2` pods to verify this
 
 ### Clean up
 To clean up your Kubernetes cluster of the resources created in this exercise run this command:
