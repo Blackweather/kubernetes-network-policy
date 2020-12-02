@@ -10,7 +10,7 @@ Suppose there are two development teams sharing the cluster resources, you could
 That's where the `NetworkPolicy` comes in.
 
 ## Diagram
-> insert architecture diagram here
+![](https://raw.githubusercontent.com/Blackweather/kubernetes-network-policy/master/exN-namespace-isolation/img/arch-diagram.png)
 
 ## Steps
 ### Deploy the resources and verify network traffic between Pods across namespaces

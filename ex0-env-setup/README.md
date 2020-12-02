@@ -104,3 +104,32 @@ echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/
 sudo apt-get update
 sudo apt-get install -y kubectl
 ```
+
+## Starting up a local Kubernetes cluster
+Assuming you have minikube and kubectl installed, run the following command:
+```
+$ minikube start --network-plugin=cni --cni=calico
+```
+
+This can take a moment the first time you run that command.
+
+To verify that your kubectl is configured properly to use with Minikube run the following command:
+```
+$ kubectl get no
+```
+
+The output should list your single-node Minikube cluster as ready:
+```
+NAME       STATUS   ROLES    AGE   VERSION
+minikube   Ready    master   30d   v1.19.2
+```
+
+If you wish to stop minikube at any time, run the following command:
+```
+$ minikube stop
+```
+
+To completely delete the minikube cluster, run the following command:
+```
+$ minikube delete
+```
