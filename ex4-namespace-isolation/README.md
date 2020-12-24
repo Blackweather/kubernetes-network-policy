@@ -1,4 +1,4 @@
-# Exercise N: Isolating the namespaces
+# Exercise 4: Isolating the namespaces
 
 ## Description
 By default all the Pods running in the Kubernetes cluster can communicate between each other.
