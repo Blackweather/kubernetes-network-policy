@@ -136,13 +136,13 @@ $ kubectl get networkpolicy -n <namespace>
 2. Test if the Pods in the same namespace can still connect to each other - use the `hello-v2` pods to verify this
 
 ### Clean up
-To clean up your Kubernetes cluster of the resources created in this exercise run this command:
+To clean up your Kubernetes cluster of the resources created in this exercise, run this command:
 ```
 $ kubectl delete -f namespaces/
 ```
 
 ### Summary
-This exercises allowed us to discover a use case for NetworkPolicy and a way to implement them.
+This exercise allowed us to discover a use case for NetworkPolicy and a way to implement them.
 
 For grading, please send screenshots of:
 - running Pods with their IPs listed,
