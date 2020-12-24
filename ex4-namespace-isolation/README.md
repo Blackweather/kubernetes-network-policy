@@ -50,7 +50,7 @@ $ kubectl apply -f pods/beta/
 
 To verify the Pods have been created run this command:
 ```
-kubectl get po -n <namespace>
+$ kubectl get po -n <namespace>
 ```
 
 Your output should look like this:
@@ -106,7 +106,7 @@ Run these commands:
 To test the connection use the private IP we got earlier on.
 Run this command:
 ```
-/ # curl {IP}:8080
+/ # curl <IP>:8080
 ```
 
 You should get a response:
@@ -128,7 +128,7 @@ $ kubectl apply -f policy/
 3. Verify the policy was created
 Run this command:
 ```
-$ kubectl get networkpolicy -n
+$ kubectl get networkpolicy -n <namespace>
 ```
 
 ### Test if your NetworkPolicy is working as expected
