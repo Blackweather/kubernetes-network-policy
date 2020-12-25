@@ -132,6 +132,11 @@ $ kubectl get networkpolicy -n <namespace>
 ```
 
 ### Test if your NetworkPolicy is working as expected
+To check if the Pods cannot connect to themselves, use `curl` with a timeout, for example:
+```
+/ # curl --max-time 5 <IP>:8080
+```
+
 1. Test if the Pods cannot connect across namespaces
 2. Test if the Pods in the same namespace can still connect to each other - use the `hello-v2` pods to verify this
 
