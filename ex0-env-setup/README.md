@@ -111,6 +111,24 @@ Assuming you have minikube and kubectl installed, run the following command:
 $ minikube start --network-plugin=cni --cni=calico
 ```
 
+**WARNING**
+If you are a Windows user start minikube using either Hyper-V or Virtualbox.
+Docker networking does not work properly on Windows and you will run into issues.
+
+### Hyper-V
+Preferred for Windows
+```
+$ minikube start --network-plugin=cni --cni=calico --driver=hyperv
+```
+
+### VirtualBox
+```
+$ minikube start --network-plugin=cni --cni=calico --driver=virtualbox
+```
+
+When creating the cluster with virtualbox, a few administrative prompts will appear. Confirm them all.
+
+
 This can take a moment the first time you run that command.
 
 To verify that your kubectl is configured properly to use with Minikube run the following command:
