@@ -3,7 +3,7 @@
 ## Description
 In this scenario we use `NetworkPolicy` to block egress connections to some Pods running in the Kubernetes cluster. We leave one Pod with no policy to test the Ingress traffic.
 
-As a result some Pods will not be able to connect to others Pods in the cluster and will not be able to connect to the Internet, but they will still be able to communicate with the services provided. Notice that we will not be blocking access to resources completely. We are just blocking access to the Services that expose. Administrative access will still be available, so you can still use kubectl just fine.
+As a result some Pods will not be able to connect to others Pods in the cluster and will not be able to connect to the Internet, but they will still be able to communicate with the services provided.
 
 Blocking outbound traffic is usually beneficial in limiting what an attacker can do once they've compromised a system on network.
 For example if they've managed to get malware onto a system (via an infected e-mail or browser page), the malware might try to "call home" to a command and control system on the Internet to get additional code downloaded or to accept tasks from a control system (e.g. sending spam). It can also try to spread to other systems.
@@ -17,7 +17,7 @@ Additionally deploying this configuration is a good basis for securing the netwo
 ### Deploy the resources and verify network traffic between Pods and host machine
 Make sure your `minikube` is up and running (with the Calico plugin!)
 
-Create the `nginx` and `hello` pods in the default namespace using the provided manifests. The `nginx` Pod will be exposed outside the cluster using a Service of type `NodePort` and the `hello` Pod will be exposed internally using a Service of type `ClusterIP`. Run this command:
+Create the `nginx`, `hello` and `spectator` pods in the default namespace using the provided manifests. The `nginx` Pod will be exposed outside the cluster using a Service of type `NodePort` and the `hello` and `spectator` Pods will be exposed internally using a Service of type `ClusterIP`. Run this command:
 ```
 $ kubectl apply -f pods/
 ```
