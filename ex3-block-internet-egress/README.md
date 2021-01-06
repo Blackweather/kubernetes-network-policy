@@ -42,7 +42,7 @@ Both of them are exposed internally in the cluster on port 8080 using the `Clust
 
 To verify connection between the two Pods we will have to execute a curl command inside each of the pods.
 
-#### Connection from nginx to hello and spectator
+#### Connection from nginx to hello
 1. Connect to the `nginx` Pod
 ```
 $ kubectl exec -it nginx -- /bin/bash
@@ -74,9 +74,9 @@ Version: 1.0.0
 Hostname: hello
 ```
 
-Exit out of the nginx Pod and test the connection hello Pod to nginx and spectator Pod.
+Exit out of the nginx Pod and test the connection hello Pod to nginx Pod.
 
-#### Connection from hello to nginx spectator
+#### Connection from hello to nginx
 1. Connect to the `hello` Pod
 Run this command:
 ```
