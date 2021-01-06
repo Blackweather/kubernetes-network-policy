@@ -45,7 +45,7 @@ service/front2       LoadBalancer   10.101.154.16    <pending>     8081:31356/TC
 `EXTERNAL-IP` fields are marked as `<pending>` since type of the service is LoadBalancer. With this method, each service gets its own IP address.
 
 In minikube, this can be achieved using following command:
-(run in new, seperate window)
+(run in new, seperate window with **Administrator** rights)
 ```
 $ minikube tunnel
 ```
@@ -59,10 +59,19 @@ $ minikube tunnel
 ```
 And external IP field will be assigned.
 
+### WARNING!
+If the external IPs are NOT 127.0.0.1 (localhost), you are using newer version of minikube.
+To make it work you have to open a new terminal and port forward backend service to localhost. 
+Enter the following command:
+```
+$ kubectl port-forward svc/backend 5000:5000
+```
+
 ### Verify Pods are running and working
 When the services are being tunneled, you can open a browser and type 2 addresses:
-- localhost:8080 for front1 app
-- localhost:8081 for front2 app
+
+- EXTERNAL-IP:8080 for front1 app
+- EXTERNAL-IP:8081 for front2 app
 
 After 1-2 seconds you will be greeted from the `backend` server with the current time.
 
@@ -72,13 +81,15 @@ To verify connection between the Pods we will have to execute a `curl` command i
 Connect to the `front1` Pod.
 Run this command:
 ```
-$ kubectl exec -it front1 -- /bin/bash
+$ kubectl exec -it front1 -- /bin/sh
 ```
 
 Call API endpoint by using `curl`:
 ```
 / # curl backend:5000/app
 ```
+
+Repeat this for `front2` Pod.
 
 Exit out of the nginx Pod and test the connection from `front2` Pod to `backend` Pod.
 Run this command:
