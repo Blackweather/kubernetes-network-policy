@@ -1,0 +1,8 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: isolate-backend
+spec:
+
+# This policy prevents ingress traffic from front2 to backend.
+# Backend should be able to communicate with the other pod. 
