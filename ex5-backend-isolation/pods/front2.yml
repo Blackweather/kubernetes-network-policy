@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: front2
+  labels:
+    app: front2
+spec:
+  containers:
+  - image: jacekard/front-app:4
+    name: front-app2
+    ports:
+    - containerPort: 80
