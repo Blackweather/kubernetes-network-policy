@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: nginx
+    block-egress: "true"
+  name: nginx
+spec:
+  containers:
+  - image: nginx:1.14.2
+    name: nginx
+    ports:
+    - containerPort: 80
+    
