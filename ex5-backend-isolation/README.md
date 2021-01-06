@@ -59,9 +59,7 @@ $ minikube tunnel
 ```
 And external IP field will be assigned.
 
-### WARNING!
-If the external IPs are NOT 127.0.0.1 (localhost), you are using newer version of minikube.
-To make it work you have to open a new terminal and port forward backend service to localhost. 
+Since the external IP will be different every time, to make it work you have to open a new terminal and port forward the backend service to localhost. 
 Enter the following command:
 ```
 $ kubectl port-forward svc/backend 5000:5000
