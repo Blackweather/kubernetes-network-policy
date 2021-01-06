@@ -170,7 +170,7 @@ $ kubectl get networkpolicy
 ### Test if your NetworkPolicy is working as expected
 To check if the Pods cannot connect to the Internet, use `curl` with a timeout, for example:
 ```
-/ # curl --max-time 5 google.pl:8080
+/ # curl --max-time 5 google.pl
 ```
 
 1. Test if the `hello` and `nginx` Pods can't connect to the Internet
