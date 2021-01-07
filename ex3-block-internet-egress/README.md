@@ -3,7 +3,7 @@
 ## Description
 In this scenario we use `NetworkPolicy` to block the Internet connection.
 
-As a result some all Pods will not be able to connect to the Internet but will still be able to communicate with each other.
+As a result all Pods will not be able to connect to the Internet but will still be able to communicate with each other.
 
 If we know that our Pods should not connect to the Internet, it is good practice to block this access. This will prevent infiltration by malicious websites and prevent data leakage if the services have been misconfigured. If the network has been compromised for any reason, blocking Internet connectivity will prevent the malware from communicating with the control system.
 
